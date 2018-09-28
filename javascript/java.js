@@ -16,25 +16,30 @@ $("#submit").on('click', function () {
             var results = response.data;
             console.log(response);
             var myFunc = function () {
-                var a = $('<a>');
+                var button = $('<button>');
                 var gifImage = $('<img>');
                 gifImage.addClass("gif");
-                var x = Math.floor(Math.random() * 31)
+                gifImage.attr('data-toggle', 'modal');
+                gifImage.attr('data-target', '#gifBox');
+                var x = Math.floor(Math.random() * 31);
                 gifImage.attr('src', results[x].images.fixed_height.url);
-                a.append(gifImage);
-                $('#gif').append(a);
+                button.append(gifImage);
+                $('#gif').append(button);
             }
             myFunc();
             $('#character-input').val('');
+
         });
+    
 });
 
 $('#clear').on('click', function () {
     $('.gif').remove();
 })
-// click function forgif {
-//     var currentChar = $(this).attr('data-name')
-// }
+
+$('.gif').on('click', function(){
+    $(this).attr('href', "#gifBox");
+})
 
 var publicKey = "edee4541fdd441305827517a3be008fa";
 var privateKey = "b3eb203ce301f638823f6def8be7308a8a2c3a87";
