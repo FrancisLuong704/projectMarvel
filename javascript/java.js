@@ -1,4 +1,3 @@
-
 var characters = [];
 
 $("#submit").on('click', function () {
@@ -25,8 +24,12 @@ $("#submit").on('click', function () {
                 $('#gif').append(a);
             }
         })
+        $('#character-input').val('');
 });
 
+$('#clear').on('click', function() {
+    $('.gif').remove();
+})
 // click function forgif {
 //     var currentChar = $(this).attr('data-name')
 // }
