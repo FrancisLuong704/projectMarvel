@@ -1,0 +1,57 @@
+@font-face {
+    src : url("fonts/avengersFont.otf");
+    font-family:avengersFont;
+}
+
+@font-face {
+    src : url("fonts/CaptainAmerica.otf");
+    font-family:CaptainAmerica;
+}
+
+
+body {
+    background-image: url("images/marvel6.jpg");
+    background-size:100%;
+    margin-right:30px;
+}
+
+#searchBox {
+    background-color: grey;
+    border-radius: 8px;
+}
+
+
+#homeTextBox{
+    opacity:0.9;
+    border-radius:8px;
+}
+
+#homeHeader {
+    font-size:5rem;
+    /* padding-top:10px; */
+}
+
+#homeHeaderBox {
+    background-color: grey;
+    align-content:center;
+    border-radius:8px;
+    font-family:avengersFont;
+}
+
+#gifGuideBox {
+    /* background-color: red; */
+    border-radius: 8px;
+    font-family:CaptainAmerica;
+}
+
+#gifGuide {
+    font-size:1.5rem;
+}
+
+#inputSearchHead {
+    font-size:2rem;
+    font-family:CaptainAmerica;
+}
+
+
+
