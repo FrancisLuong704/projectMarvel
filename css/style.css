@@ -12,7 +12,6 @@
 body {
     background-image: url("images/marvel6.jpg");
     background-size:100%;
-    margin-right:30px;
 }
 
 #searchBox {
@@ -53,5 +52,55 @@ body {
     font-family:CaptainAmerica;
 }
 
+#modalContent {
+    width: 800px;
+    height: 800px;
+}
+
+
+/* CSS for index2.html */
+#homeHeader2Horizon {
+    margin-bottom:30px;
+    /* position:fixed;
+    left:0;
+    right:0; */
+    z-index: 1;
+    background:grey;
+}
+
+#homeHeader2Div {
+    /* font-family:avengersFont;
+    font-size:35px; */
+}
+
+#homeHeader2 {
+    font-family:avengersFont;
+}
+
+#textBox2Container {
+    background:grey;
+}
+
+#textBox2HeadDiv {
+    background:skyblue;
+    border-radius:8px; 
+}
+
+#textBox2Outside {
+    background:grey;
+    border-radius: 8px;
+}
+
+#imageCaro {
+    background:grey;
+}
+
+#footer {
+    background:skyblue;
+    position:fixed;
+    width:100%;
+    clear:both;
+    z-index:1;
+}
 
 
