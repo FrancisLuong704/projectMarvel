@@ -19,6 +19,7 @@ $("#submit").on('click', function () {
                 var button = $('<button>');
                 var gifImage = $('<img>');
                 gifImage.addClass("gif");
+                gifImage.addClass(charInput);
                 gifImage.attr('data-toggle', 'modal');
                 gifImage.attr('data-target', '#gifBox');
                 var x = Math.floor(Math.random() * 31);
@@ -27,39 +28,55 @@ $("#submit").on('click', function () {
                 $('#gif').append(button);
             }
             myFunc();
-            $('#character-input').val('');
 
+            var publicKey = "edee4541fdd441305827517a3be008fa";
+            var privateKey = "b3eb203ce301f638823f6def8be7308a8a2c3a87";
+            var url = "http://gateway.marvel.com/v1/public/characters?name=" + charInput;
+
+            var ts = moment().format("X");
+            $.ajax({
+                url: url,
+                method: "GET",
+                data: {
+                    apikey: publicKey,
+                    ts: ts,
+                    hash: CryptoJS.MD5(ts + privateKey + publicKey).toString()
+                },
+                headers: {
+                    "Accept": "*/*"
+                }
+            }).then(function (marvelResults) {
+                console.log(marvelResults);
+                var marvelName = marvelResults.data.results[0].name;
+                var marvelBio = marvelResults.data.results[0].description;
+                console.log(marvelName);
+                console.log(marvelBio);
+                $('.' + marvelName + '').attr('data-name', marvelName);
+                $('.' + marvelName + '').attr('data-bio', marvelBio);
+            });
+            $('#character-input').val('');
         });
-    
 });
 
 $('#clear').on('click', function () {
     $('.gif').remove();
 })
 
-$('.gif').on('click', function(){
+$(document).on('click', '.gif', function () {
     $(this).attr('href', "#gifBox");
+    $('.marvelName').text($(this).attr('data-name'));
+    $('#marvelBio').text($(this).attr('data-bio'));
 })
 
-var publicKey = "edee4541fdd441305827517a3be008fa";
-var privateKey = "b3eb203ce301f638823f6def8be7308a8a2c3a87";
+var input = "thor";
 
-function callAPI(url) {
-    var ts = moment().format("X");
-    $.ajax({
-        url: url,
-        method: "GET",
-        data: {
-            apikey: publicKey,
-            ts: ts,
-            hash: CryptoJS.MD5(ts + privateKey + publicKey).toString()
-        },
-        headers: {
-            "Accept": "*/*"
-        }
-    }).then(function (response) {
-        console.log(response);
-    });
-}
+var youtubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=" + input + "fight+scene&type=video&order=relevance&maxResults=10&key=AIzaSyDgZS_6eBxr4jH-6ct7ETxb7IzN6kJ99_Q"
 
-callAPI("http://gateway.marvel.com/v1/public/characters");
+$.ajax({
+    url: youtubeURL,
+    method: "GET"
+
+    // After the data comes back from the API
+}).then(function (response) {
+    console.log(response);
+})
