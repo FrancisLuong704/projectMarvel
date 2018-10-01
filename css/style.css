@@ -52,9 +52,8 @@ body {
     font-family:CaptainAmerica;
 }
 
-#modalContent {
-    width: 800px;
-    height: 800px;
+#modalContent.large {
+    width: 100%
 }
 
 
