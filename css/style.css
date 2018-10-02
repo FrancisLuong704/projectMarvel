@@ -1,3 +1,8 @@
+#thumbnail {
+    width: 50px;
+    height: 60px;
+}
+
 @font-face {
     src : url("fonts/avengersFont.otf");
     font-family:avengersFont;
@@ -131,6 +136,4 @@ body {
     clear:both;
     z-index:1;
 }
-
-
 
