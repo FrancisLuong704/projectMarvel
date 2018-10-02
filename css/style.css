@@ -8,6 +8,25 @@
     font-family:CaptainAmerica;
 }
 
+@font-face {
+    src : url("fonts/thinCaptainAmerica.ttf");
+    font-family:thinCaptainAmerica;
+}
+
+@font-face {
+    src : url("fonts/exoLight.ttf");
+    font-family:exoLight;
+}
+
+@font-face {
+    src : url("fonts/exoThin.ttf");
+    font-family:exoThin;
+}
+
+@font-face {
+    src : url("fonts/exoRegular.ttf");
+    font-family:exoRegular;
+}
 
 body {
     background-image: url("images/marvel6.jpg");
@@ -52,9 +71,29 @@ body {
     font-family:CaptainAmerica;
 }
 
-#modalContent.large {
-    width: 100%
+#modalContent.xl {
+    width: 100%;
+
 }
+
+#marvelName {
+    font-family:CaptainAmerica;
+    letter-spacing:2px;
+}
+
+#marvelBio {
+    font-family:exoRegular;
+    word-spacing:10px;
+    font-size:18px;
+    line-height:1.6;
+}
+
+@media (min-width: 768px) {
+    .modal-xl {
+      width: 90%;
+     max-width:1100px;
+    }
+  }
 
 
 /* CSS for index2.html */
@@ -68,38 +107,30 @@ body {
 }
 
 #homeHeader2Div {
-    /* font-family:avengersFont;
-    font-size:35px; */
+    font-family:avengersFont;
+    font-size:35px;
 }
 
 #homeHeader2 {
     font-family:avengersFont;
 }
 
-#textBox2Container {
-    background:grey;
-}
+
 
 #textBox2HeadDiv {
-    background:skyblue;
     border-radius:8px; 
 }
 
 #textBox2Outside {
-    background:grey;
     border-radius: 8px;
 }
 
-#imageCaro {
-    background:grey;
-}
-
 #footer {
-    background:skyblue;
     position:fixed;
     width:100%;
     clear:both;
     z-index:1;
 }
+
 
 

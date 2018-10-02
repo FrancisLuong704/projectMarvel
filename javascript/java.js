@@ -78,4 +78,3 @@ $(document).on('click', '.gif', function () {
     $(this).attr('href', "#gifBox");
     $('.marvelName').text($(this).attr('data-name'));
     $('#marvelBio').text($(this).attr('data-bio'));
-});
