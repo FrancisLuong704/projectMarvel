@@ -53,29 +53,31 @@ $("#submit").on('click', function () {
                 console.log(marvelBio);
                 $('.' + marvelName + '').attr('data-name', marvelName);
                 $('.' + marvelName + '').attr('data-bio', marvelBio);
+                var youtubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=" + charInput + "+fight+scene&type=video&order=relevance&maxResults=10&key=AIzaSyDgZS_6eBxr4jH-6ct7ETxb7IzN6kJ99_Q";
+
+                $.ajax({
+                    url: youtubeURL,
+                    method: "GET"
+                    // After the data comes back from the API
+                }).then(function (response) {
+                    console.log(response);
+                    var videoID = (response.items[0].id.videoId);
+                    var vidEmbed = '<iframe width="515" height="310" src="https://www.youtube.com/embed/' + videoID + '"frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+                    $('.' + marvelName + '').attr('data-web', vidEmbed);
+                });
             });
         });
-    var youtubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=" + charInput + "+fight+scene&type=video&order=relevance&maxResults=10&key=AIzaSyDgZS_6eBxr4jH-6ct7ETxb7IzN6kJ99_Q";
-
-    $.ajax({
-        url: youtubeURL,
-        method: "GET"
-        // After the data comes back from the API
-    }).then(function (response) {
-        console.log(response);
-        var videoID = (response.items[0].id.videoId);
-        var vidEmbed = '<iframe width="515" height="310" src="https://www.youtube.com/embed/' + videoID + '"frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-        $('.marvelTube').append(vidEmbed);
-    });
     $('#character-input').val('');
 });
 
 $('#clear').on('click', function () {
     $('.gif').remove();
 });
-
+ 
 $(document).on('click', '.gif', function () {
+    $('iframe').remove();
     $(this).attr('href', "#gifBox");
     $('.marvelName').text($(this).attr('data-name'));
     $('#marvelBio').text($(this).attr('data-bio'));
+    $('.marvelTube').append($(this).attr('data-web'));
 });
