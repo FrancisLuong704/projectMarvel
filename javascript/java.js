@@ -7,7 +7,7 @@ $("#submit").on('click', function () {
     //if statement saying if it is in marvel character database than run this function below } else alert saying it is not a character
     var name = $(this).attr('data-name');
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + charInput + "+marvel+movie+comic&api_key=N58pplWVQxSxzn6cv54929BIxQdzCdgJ&limit=30";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + charInput + "+marvel+movie+comic&api_key=N58pplWVQxSxzn6cv54929BIxQdzCdgJ&limit=20";
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -22,7 +22,7 @@ $("#submit").on('click', function () {
                 gifImage.addClass(charInput);
                 gifImage.attr('data-toggle', 'modal');
                 gifImage.attr('data-target', '#gifBox');
-                var x = Math.floor(Math.random() * 31);
+                var x = Math.floor(Math.random() * 21);
                 gifImage.attr('src', results[x].images.fixed_height.url);
                 button.append(gifImage);
                 $('#gif').append(button);
@@ -53,30 +53,32 @@ $("#submit").on('click', function () {
                 console.log(marvelBio);
                 $('.' + marvelName + '').attr('data-name', marvelName);
                 $('.' + marvelName + '').attr('data-bio', marvelBio);
+                var youtubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=" + charInput + "+fight+scene&type=video&order=relevance&maxResults=10&key=AIzaSyDgZS_6eBxr4jH-6ct7ETxb7IzN6kJ99_Q";
+
+                $.ajax({
+                    url: youtubeURL,
+                    method: "GET"
+                    // After the data comes back from the API
+                }).then(function (response) {
+                    console.log(response);
+                    var videoID = (response.items[0].id.videoId);
+                    var vidEmbed = '<iframe width="515" height="310" src="https://www.youtube.com/embed/' + videoID + '"frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+                    $('.' + marvelName + '').attr('data-web', vidEmbed);
+                });
             });
-            $('#character-input').val('');
         });
+    $('#character-input').val('');
 });
 
 $('#clear').on('click', function () {
     $('.gif').remove();
-})
-
+});
+ 
 $(document).on('click', '.gif', function () {
+    $('iframe').remove();
     $(this).attr('href', "#gifBox");
     $('.marvelName').text($(this).attr('data-name'));
     $('#marvelBio').text($(this).attr('data-bio'));
-})
+    $('.marvelTube').append($(this).attr('data-web'));
+});
 
-var input = "thor";
-
-var youtubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=" + input + "fight+scene&type=video&order=relevance&maxResults=10&key=AIzaSyDgZS_6eBxr4jH-6ct7ETxb7IzN6kJ99_Q"
-
-$.ajax({
-    url: youtubeURL,
-    method: "GET"
-
-    // After the data comes back from the API
-}).then(function (response) {
-    console.log(response);
-})
