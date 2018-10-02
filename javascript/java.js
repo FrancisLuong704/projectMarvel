@@ -17,6 +17,7 @@ $("#submit").on('click', function () {
             console.log(response);
             var myFunc = function () {
                 var button = $('<button>');
+                button.addClass("remove");
                 var gifImage = $('<img>');
                 gifImage.addClass("gif");
                 gifImage.addClass(charInput);
@@ -49,10 +50,12 @@ $("#submit").on('click', function () {
                 console.log(marvelResults);
                 var marvelName = marvelResults.data.results[0].name;
                 var marvelBio = marvelResults.data.results[0].description;
+                var marvelImage = marvelResults.data.results[0].thumbnail.path + '.jpg';
                 console.log(marvelName);
                 console.log(marvelBio);
                 $('.' + marvelName + '').attr('data-name', marvelName);
                 $('.' + marvelName + '').attr('data-bio', marvelBio);
+                $('.' + marvelName + '').attr('data-src', marvelImage );
                 var youtubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&safeSearch=moderate&q=" + charInput + "+fight+scene&type=video&order=relevance&maxResults=10&key=AIzaSyDgZS_6eBxr4jH-6ct7ETxb7IzN6kJ99_Q";
 
                 $.ajax({
@@ -71,14 +74,17 @@ $("#submit").on('click', function () {
 });
 
 $('#clear').on('click', function () {
-    $('.gif').remove();
+    $('.remove').remove();
 });
  
 $(document).on('click', '.gif', function () {
     $('iframe').remove();
+    $('#marvelPic').remove();
+    var newDiv = $("<div id=marvelPic>")
     $(this).attr('href', "#gifBox");
     $('.marvelName').text($(this).attr('data-name'));
     $('#marvelBio').text($(this).attr('data-bio'));
     $('.marvelTube').append($(this).attr('data-web'));
+    newDiv.append('<img id="thumbnail" src="'+ $(this).attr("data-src") + '">');
+    $('#textBox2Container').prepend(newDiv);
 });
-
