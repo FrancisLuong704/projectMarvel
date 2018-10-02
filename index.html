@@ -12,8 +12,9 @@
     crossorigin="anonymous">
   <!-- Regular CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <!-- Animations -->
+  <link rel="stylesheet" href="css/wickedcss.min.css">
   <!-- Font -->
-  <!-- <link rel="stylesheet" type="text/css" href="css/fonts/avengersFont.otf"> -->
 </head>
 
 <body>
@@ -64,8 +65,8 @@
                 aria-describedby="helpId" placeholder="Type Marvel Character Here">
 
               <!-- Buttons  -->
-              <button type="submit" id="submit" class="btn btn-danger mt-3 mr-1">Search</button>
-              <button type="reset" id="clear" class="btn btn-danger mt-3 mr-1">Clear</button>
+              <button type="submit" id="submit" class="btn btn-danger mt-3 mr-1 floater">Search</button>
+              <button type="reset" id="clear" class="btn btn-danger mt-3 mr-1 floater">Clear</button>
             </div>
             <div id="gifGuideBox">
               <h4 id="gifGuide" class="text-center mt-3 p-3 text-danger">Click on any of the Gifs below to learn more
@@ -88,26 +89,25 @@
     <div class="row">
       <div class="modal fade mw-100" id="gifBox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div id="modalContent" class="modal-content p-5">
-            <div class="modal-header">
-              <h5 class="modal-title text-uppercase marvelName" id="exampleModalLabel">hello</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="exampleModalLabel">
+        <div class="modal-dialog modal-xl" role="document">
+          <div id="modalContent modal-xl" class="modal-content p-2">
+            <div class="modal-header text-center">
+              <h1 class="modal-title text-uppercase marvelName" id="marvelName">Please re-type the character's name.</h1>
+              <button type="button" class="close" data-dismiss="modal" aria-label="marvelName">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <!-- Modal Body -->
-            <div class="modal-body">
+            <div class="modal-body p-1">
               <div class="col-lg-12">
                 <!-- Textbox Container -->
                 <div class="row mb-3">
                   <div class="col-lg-12">
-                    <div id="textBox2Container" class="p-4 pt-2 bg-white">
-                      <div id="textBox2HeadDiv" class="p-3 mb-2 bg-danger">
+                    <div id="textBox2Container" class="p-2  bg-white">
+                      <div id="textBox2HeadDiv" class="p-3  bg-danger">
                         <div class="marvelPic"></div>
                         <div id="marvelBio"></div>
                         <div id="textBox2Outside" class="p-2 marvelTube">
-
                         </div>
                       </div>
                     </div>
@@ -123,6 +123,7 @@
       </div>
     </div>
   </div>
+
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
