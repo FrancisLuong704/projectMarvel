@@ -81,3 +81,4 @@ $(document).on('click', '.gif', function () {
     $('#marvelBio').text($(this).attr('data-bio'));
     $('.marvelTube').append($(this).attr('data-web'));
 });
+
