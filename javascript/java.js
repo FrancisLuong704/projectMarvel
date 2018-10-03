@@ -34,7 +34,7 @@ $("#submit").on('click', function () {
 
             var publicKey = "edee4541fdd441305827517a3be008fa";
             var privateKey = "b3eb203ce301f638823f6def8be7308a8a2c3a87";
-            var url = "http://gateway.marvel.com/v1/public/characters?name=" + charInput;
+            var url = "https://gateway.marvel.com/v1/public/characters?name=" + charInput;
 
             var ts = moment().format("X");
             $.ajax({
