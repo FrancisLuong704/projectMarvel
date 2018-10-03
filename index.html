@@ -12,16 +12,16 @@
     crossorigin="anonymous">
   <!-- Regular CSS -->
   <link rel="stylesheet" href="css/style.css">
-  <!-- Font -->
-  <!-- <link rel="stylesheet" type="text/css" href="css/fonts/avengersFont.otf"> -->
+  <!-- Animations -->
+  <link rel="stylesheet" href="css/wickedcss.min.css">
 </head>
 
 <body>
   <!-- Header area -->
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="w-50 p-1 mt-2 mx-auto text-center bg-danger" id="homeHeaderBox">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="p-1 mt-2 mx-auto text-center bg-danger" id="homeHeaderBox">
           <h1 class="mt-4 pt-3" id="homeHeader">MARVEL WIKI</h1>
         </div>
       </div>
@@ -29,9 +29,9 @@
 
     <!-- Homepage  -->
     <div class="container">
-      <div class="ml-5 mr-5" class="row">
-        <div class="ml-5 mr-5" class="col-lg-12">
-          <div id="homeTextBox" class="jumbotron ml-5 mr-5 mt-2 pt-3 pl-3 pr-3 pb-0">
+      <div class="ml-3 mr-3" class="row">
+        <div class="ml-1 mr-1" class="col-lg-12">
+          <div id="homeTextBox" class="jumbotron mt-2 pt-3 pl-3 pr-3 pb-0">
             <p class="text-center">
               <strong>Welcome to Marvel Wiki!</strong>
               <br>This page will help you dive deeper into the Marvel universe by giving you a detailed biography of
@@ -53,9 +53,7 @@
               Marvel
               into the highly successful company it is today, creating everything from TV shows, movies, comics, and
               much
-              more. So, dive in and explore for anyone in the entirety of the Marvel Universe hero or villain in this
-              dynamic
-              database.
+              more.
             </p>
             <br>
             <div id="searchBox" class="text-center p-3">
@@ -64,8 +62,8 @@
                 aria-describedby="helpId" placeholder="Type Marvel Character Here">
 
               <!-- Buttons  -->
-              <button type="submit" id="submit" class="btn btn-danger mt-3 mr-1">Search</button>
-              <button type="reset" id="clear" class="btn btn-danger mt-3 mr-1">Clear</button>
+              <button type="submit" id="submit" class="btn btn-danger mt-3 mr-1 floater">Search</button>
+              <button type="reset" id="clear" class="btn btn-danger mt-3 mr-1 floater">Clear</button>
             </div>
             <div id="gifGuideBox">
               <h4 id="gifGuide" class="text-center mt-3 p-3 text-danger">Click on any of the Gifs below to learn more
@@ -89,32 +87,30 @@
       <div class="modal fade mw-100" id="gifBox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-          <div id="modalContent" class="modal-content p-5">
+          <div id="modalContent" class="modal-content p-3">
             <div class="modal-header">
-              <h5 class="modal-title text-uppercase marvelName" id="exampleModalLabel">hello</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="exampleModalLabel">
+              <h5 class="modal-title text-uppercase marvelName" id="exampleModalLabel">Please re-enter the character!</h5>
+              <button type="button" class="close floater" data-dismiss="modal" aria-label="exampleModalLabel">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <!-- Modal Body -->
             <div class="modal-body">
               <div class="col-lg-12">
-                <!-- Textbox Container -->
-                <div class="row mb-3">
+                <div class="row">
                   <div class="col-lg-12">
-                    <div id="textBox2Container" class="p-4 pt-2 bg-white">
-                       
-                      <div id="textBox2HeadDiv" class="p-3 mb-2 bg-danger">
+                    <div id="textBox2Container" class="p-2 pt-2 bg-white">
+
+                      <div id="textBox2HeadDiv" class="p-3 mb-2 bg-danger justify-content-center">
                         <div id="marvelBio"></div>
                       </div>
-                      <div id="textBox2Outside" class="p-2 marvelTube">
-                      </div>
-                      
-                     
+                      <div id="marvelTube" class="marvelTube justify-content-center"></div>
+
+
 
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-secondary floater" data-dismiss="modal">Close</button>
                     </div>
                   </div>
                 </div>
