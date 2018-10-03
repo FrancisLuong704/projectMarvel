@@ -2,12 +2,14 @@ var characters = [];
 
 $("#submit").on('click', function () {
     var charInput = $('#character-input').val().trim();
-
+    charInput= charInput.toLowerCase()
+    charInput = charInput.replace(/\b\w/g, l => l.toUpperCase())
+    charInput = charInput.replace(' ', '-');
     characters.push(charInput);
     //if statement saying if it is in marvel character database than run this function below } else alert saying it is not a character
     var name = $(this).attr('data-name');
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + charInput + "+marvel+movie+comic&api_key=N58pplWVQxSxzn6cv54929BIxQdzCdgJ&limit=20";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + charInput + "+marvel+movie&api_key=N58pplWVQxSxzn6cv54929BIxQdzCdgJ&limit=1";
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -23,7 +25,7 @@ $("#submit").on('click', function () {
                 gifImage.addClass(charInput);
                 gifImage.attr('data-toggle', 'modal');
                 gifImage.attr('data-target', '#gifBox');
-                var x = Math.floor(Math.random() * 21);
+                var x = Math.floor(Math.random() * 2);
                 gifImage.attr('src', results[x].images.fixed_height.url);
                 button.append(gifImage);
                 $('#gif').append(button);
