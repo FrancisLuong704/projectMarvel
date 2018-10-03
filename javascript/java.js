@@ -2,7 +2,9 @@ var characters = [];
 
 $("#submit").on('click', function () {
     var charInput = $('#character-input').val().trim();
-
+    charInput= charInput.toLowerCase()
+    charInput = charInput.replace(/\b\w/g, l => l.toUpperCase())
+    charInput = charInput.replace(' ', '-');
     characters.push(charInput);
     //if statement saying if it is in marvel character database than run this function below } else alert saying it is not a character
     var name = $(this).attr('data-name');
