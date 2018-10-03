@@ -25,8 +25,7 @@ $("#submit").on('click', function () {
                 gifImage.addClass(charInput);
                 gifImage.attr('data-toggle', 'modal');
                 gifImage.attr('data-target', '#gifBox');
-                var x = Math.floor(Math.random() * 2);
-                gifImage.attr('src', results[x].images.fixed_height.url);
+                gifImage.attr('src', results[0].images.fixed_height.url);
                 button.append(gifImage);
                 $('#gif').append(button);
             }
