@@ -1,3 +1,7 @@
+#thumbnail {
+    width: 50px;
+    height: 60px;
+}
 
 @font-face {
     src : url("fonts/avengersFont.otf");
@@ -89,6 +93,13 @@ body {
     line-height:1.6;
 }
 
+@media (min-width: 768px) {
+    .modal-xl {
+      width: 90%;
+     max-width:1100px;
+    }
+  }
+
 
 /* CSS for index2.html */
 #homeHeader2Horizon {
@@ -109,6 +120,8 @@ body {
     font-family:avengersFont;
 }
 
+
+
 #textBox2HeadDiv {
     border-radius:8px; 
 }
@@ -117,60 +130,10 @@ body {
     border-radius: 8px;
 }
 
-#thumbnail {
-    width: 170px;
-    height: 170px;
-    border-radius: 2px;
-    margin-bottom:20px;
-} 
-
-#exampleModalLabel {
-    font-size:2.5rem;
+#footer {
+    position:fixed;
+    width:100%;
+    clear:both;
+    z-index:1;
 }
 
-#iframe {
-    border-radius: 5px;
-}
-
-/* Front page mobile responsiveness */
-
-@media (max-width: 991px) {
-    #homeHeaderBox {
-        max-width: 80%;
-    }
-    #homeHeader {
-        font-size: 3.7rem
-    }
-}
-
-@media (max-width: 769px) {
-    #homeHeaderBox {
-        max-width: 80%;
-    }
-
-    #homeHeader {
-        font-size: 3.5rem
-    }
-}
-
-@media (max-width: 476px) {
-    #homeHeaderBox {
-        max-width: 90%;
-    }
-
-    #homeHeader {
-        font-size: 3.3rem
-    }
-}
-
-@media (max-width: 425px) {
-    #homeHeaderBox {
-        max-width: 80%;
-    }
-
-    #homeHeader {
-        font-size: 3rem
-    }
-}
-
-/* Modal page mobile responsiveness */

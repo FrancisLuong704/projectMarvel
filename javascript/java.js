@@ -32,7 +32,6 @@ $("#submit").on('click', function () {
             }
             myFunc();
 
-            // Marvel
             var publicKey = "edee4541fdd441305827517a3be008fa";
             var privateKey = "b3eb203ce301f638823f6def8be7308a8a2c3a87";
             var url = "http://gateway.marvel.com/v1/public/characters?name=" + charInput;
@@ -68,7 +67,7 @@ $("#submit").on('click', function () {
                 }).then(function (response) {
                     console.log(response);
                     var videoID = (response.items[0].id.videoId);
-                    var vidEmbed = '<iframe width="515" height="310" class="col-lg-12 justify-content-center mt-2" src="https://www.youtube.com/embed/' + videoID + '"frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+                    var vidEmbed = '<iframe width="515" height="310" src="https://www.youtube.com/embed/' + videoID + '"frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
                     $('.' + marvelName + '').attr('data-web', vidEmbed);
                 });
             });
@@ -83,11 +82,11 @@ $('#clear').on('click', function () {
 $(document).on('click', '.gif', function () {
     $('iframe').remove();
     $('#marvelPic').remove();
-    var newDiv = $("<div class='col-lg-12'id=marvelPic>")
+    var newDiv = $("<div id=marvelPic>")
     $(this).attr('href', "#gifBox");
     $('.marvelName').text($(this).attr('data-name'));
     $('#marvelBio').text($(this).attr('data-bio'));
     $('.marvelTube').append($(this).attr('data-web'));
-    newDiv.append('<img id="thumbnail" class="" src="'+ $(this).attr("data-src") + '">');
+    newDiv.append('<img id="thumbnail" src="'+ $(this).attr("data-src") + '">');
     $('#textBox2Container').prepend(newDiv);
 });
